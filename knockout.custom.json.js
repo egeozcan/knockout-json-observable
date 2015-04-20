@@ -1,7 +1,8 @@
-window.ko.observable.fn.json = function (propName) {
-	return window.ko.computed({
+ko.observable.fn.json = function (propName) {
+	return ko.computed({
 		read: function() {
-			var obj = JSON.parse(this());
+			var val = this() || '{}';
+			var obj = JSON.parse(val);
 			if (!!propName) {
 				return obj[propName];
 			}
@@ -10,10 +11,10 @@ window.ko.observable.fn.json = function (propName) {
 		write: function(val) {
 			var obj;
 			if (!!propName) {
-				obj = JSON.parse(this());
-				obj[propName] = window.ko.utils.unwrapObservable(val);
+				obj = JSON.parse(this() || '{}');
+				obj[propName] = ko.utils.unwrapObservable(val);
 			} else {
-				obj = window.ko.utils.unwrapObservable(val);
+				obj = ko.utils.unwrapObservable(val);
 			}
 			this(JSON.stringify(obj));
 		},
