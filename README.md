@@ -7,7 +7,7 @@ The changed values are reflected back to the observable.
 
 ## An Example
 
-### The viewmodel
+### The model and the binding
 
     var myJson = ko.observable('{"foo":"bar","anotherProp":"value","andAnother":1}');
     
@@ -33,6 +33,6 @@ The changed values are reflected back to the observable.
     
 ### Result
 
-[Result](http://i.imgur.com/vxx54jP.png)
+![Result](http://i.imgur.com/vxx54jP.png "Should look like this after applying bindings")
 
 Here is a demo: https://jsfiddle.net/2u308bzg/
